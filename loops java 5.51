@@ -1,0 +1,36 @@
+
+package com.xfeatures.exercise;
+
+import java.util.*;
+import java.lang.*;
+public class ex_loops_5_51 {
+    public static void main(String[] args){
+    /*
+        *5.51 (Longest common prefix) Write a program that prompts the user to enter two
+strings and displays the largest common prefix of the two strings. Here are some
+
+        */
+   Scanner sc = new Scanner(System.in);
+    
+     System.out.println("please enter your strings");
+     String input1 = sc.nextLine();
+    String input2 =sc.nextLine();
+    //String answer="";
+    int i =0;
+    while(input1.charAt(i)== input2.charAt(i) ){
+      
+    
+        
+   
+    i++;
+   // System.out.println("your first match: "+ input1.charAt(i));
+    if (input1.charAt(i)!= input2.charAt(i) ){
+    break;
+    }
+        
+    }
+     System.out.println("your common string is: "+ input1.substring(0,i)  );
+    
+    }
+      
+}
