@@ -1,0 +1,53 @@
+
+
+import static java.lang.System.in;
+import java.util.*;
+
+public class array7_1 {
+    public static void main (String[] args){
+    /*
+        *7.1 (Assign grades) Write a program that reads student scores, gets the best score,
+and then assigns grades based on the following scheme:
+Grade is A if score is Ú best - 10
+Grade is B if score is Ú best - 20;
+Grade is C if score is Ú best - 30;
+Grade is D if score is Ú best - 40;
+Grade is F otherwise.
+The program prompts the user to enter the total number of students, then prompts
+the user to enter all of the scores, and concludes by displaying the grades. Here
+is a sample run:
+        */
+  
+    grades(inputgrades());
+    }
+    public static void grades(int[] input){
+        int best = 100;
+       
+        for (int i=0; i<4; i++){
+        if (input[i]>=90 && input[i]<=best){System.out.println("grades for subject : "+i+ " are: A" );}
+        else if (input[i]>=80 && input[i]<=90){System.out.println("grades for subject : "+i+ " are: B" );}
+       else if (input[i]>=70 && input[i]<=80){System.out.println("grades for subject : "+i+ " are: C" );}
+       else if (input[i]>=60 && input[i]<=70){System.out.println("grades for subject : "+i+ " are: D" );}
+        else 
+            System.out.println("grades for subject : "+i+ " are: F" );
+             }
+       
+      
+    }
+    public static int[] inputgrades(){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("please enter you grades" );
+        int in1 = sc.nextInt();
+        int in2 = sc.nextInt();
+        int in3 = sc.nextInt();
+        int in4 = sc.nextInt();
+        
+        
+    int [] y = {in1,in2,in3,in4};
+        
+        return y;
+    
+        
+    }
+    
+}
