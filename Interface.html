@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <title>x</title>
+</head>
+<body>
+   
+          
+          
+              <label for="AssetName">Asset Name</label>
+              <input type="text" id="AssetName" >
+            
+            
+              <label for="AssetLocation">Asset Location</label>
+              <input type="text" id="AssetLocation" >
+            
+              <label for="AssetCount">Asset Count#</label>
+              <input type="number" id="AssetCount" >
+           
+            <button id="entry"> Add</button>
+            <button id="del"> Delete</button>
+            <button id="Edit"> Edit</button>
+        
+          <table id="table" border="1">
+            
+              <tr>
+                <th>AssetName</td>
+                <th>Assetlocation</th>
+                <th>AssetCount#</th>
+                
+              </tr>
+              <tr>
+                <td>Scanner</td>
+                <td>Yvr4</td>
+                <td>5</td>
+                
+              </tr>
+              <tr>
+                <td>Laptop</td>
+                <td>Yvr4</td>
+                <td>14</td>
+                
+              </tr>
+            
+              
+           
+          </table>
+        
+      </div>
+    <script>
+      var row =1;
+      var rIndex;
+      var table = document.getElementById("table");
+      var AddBtn= document.getElementById("entry");
+      AddBtn.addEventListener("click",function () {
+        var ItemName= document.getElementById("AssetName").value;
+        var ItemLocation= document.getElementById("AssetLocation").value;
+        var ItemCount= document.getElementById("AssetCount").value;
+        if(ItemCount==""||ItemLocation==""||ItemName==""){
+  alert("please entry correct information")
+}else{
+    var newEntry=table.insertRow(table.lenght);
+     var cell1=newEntry.insertCell(0);
+     var cell2=newEntry.insertCell(1);
+     var cell3=newEntry.insertCell(2);
+
+cell1.innerHTML= ItemName;
+cell2.innerHTML=ItemLocation;
+cell3.innerHTML=ItemCount;}
+selectedRow();
+
+
+      });
+
+      function selectedRow()
+            {
+                
+                for(var i = 1; i < table.rows.length; i++)
+                {
+                    table.rows[i].onclick = function()
+                    {
+                      // get the seected row index
+                      rIndex = this.rowIndex;
+                      document.getElementById("AssetName").value = this.cells[0].innerHTML;
+                      document.getElementById("AssetLocation").value = this.cells[1].innerHTML;
+                      document.getElementById("AssetCount").value = this.cells[2].innerHTML;
+                    };
+                }
+            }
+            
+            var EditBtn= document.getElementById("Edit");
+            var DelBtn= document.getElementById("del");
+
+            EditBtn.addEventListener("click",EditMethod);
+            DelBtn.addEventListener("click",DeleteMethod);
+
+            function EditMethod() {
+              
+              var ItemName= document.getElementById("AssetName").value;
+        var ItemLocation= document.getElementById("AssetLocation").value;
+        var ItemCount= document.getElementById("AssetCount").value;
+if(ItemCount==""||ItemLocation==""||ItemName==""){
+  alert("please entry correct information")
+}else{
+  table.rows[rIndex].cells[0].innerHTML=ItemName;
+table.rows[rIndex].cells[1].innerHTML=ItemLocation;
+table.rows[rIndex].cells[2].innerHTML=ItemCount;
+}
+
+            }
+            function DeleteMethod(){
+            //  table.deleteRow(rIndex);
+           
+  var txt;
+  if (confirm("press cancel if you do not want to delete otherwise ok!")) {
+    EditMethod();
+  } else {
+    table.deleteRow(rIndex);
+  
+}
+              document.getElementById("AssetName").value = "";
+                      document.getElementById("AssetLocation").value = "";
+                      document.getElementById("AssetCount").value = "";
+            }
+            
+    </script>
+    
+</body>
+</html>
